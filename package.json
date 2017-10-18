@@ -1,0 +1,35 @@
+{
+  "name": "validator",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/low-res/validator.git"
+  },
+  "license": "MIT",
+  "format": "amd",
+  "jspm": {
+    "main": "validator",
+    "directories": {
+      "lib": "src",
+      "test": "tests"
+    },
+    "dependencies": {
+      "lodash": "npm:lodash@^4.17.4"
+    },
+    "devDependencies": {
+      "jasmine-core": "npm:jasmine-core@^2.7.0",
+      "jspm": "npm:jspm@^0.16.53",
+      "karma": "npm:karma@^1.7.0",
+      "karma-jasmine": "npm:karma-jasmine@^1.1.0",
+      "karma-systemjs": "npm:karma-systemjs@^0.16.0"
+    }
+  },
+  "devDependencies": {
+    "jasmine-core": "^2.7.0",
+    "jspm": "^0.16.53",
+    "karma": "^1.7.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-jasmine": "^1.1.0",
+    "karma-systemjs": "^0.16.0"
+  }
+}
