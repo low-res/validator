@@ -102,7 +102,7 @@ define([
         if(_.isString(validation)) {
             switch( validation ) {
                 case "required":
-                    res = !_.isEmpty(valueToTest) || _.isDate(valueToTest);
+                    res = !_.isEmpty(valueToTest) || _.isDate(valueToTest) || _.isNumber(valueToTest);
                     break;
 
                 case "email":

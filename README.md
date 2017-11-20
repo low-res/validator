@@ -26,7 +26,7 @@ var isValid = Validator.validate('paul@low-res.de', ['email',myValidation])
 ```
 
 Default validations are
-- required`
+- required
 - email
 - numerical
 
