@@ -36,6 +36,17 @@ define([
         }
     }
 
+    /**
+     * test if a certain validation is included in the given
+     * validation object
+     */
+    p.containsValidation = function ( validationToFind, validationObject) {
+        var v = this._prepareValidations(validationObject);
+        console.log( v );
+        var f = _.find(v, {'validation':validationToFind});
+        return f ? true : false;
+    }
+
 
     ///////////////////////////////////////////
     //

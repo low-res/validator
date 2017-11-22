@@ -103,6 +103,7 @@ define([
             expect(errors[0]).toEqual('validationerror.generic');
         });
 
+
         it('should respect custom errormessages when given as validation', function () {
             var customValidationFunc = _.bind(function ( valueToTest ) {
                 return _.startsWith( valueToTest, "XYZ");
@@ -133,6 +134,19 @@ define([
             expect(errors[0]).toEqual('validationerror.isXYZ');
         });
 
+
+        it('should be possible to test if a certain validation is present in the given validation object', function () {
+            var customValidationFunc = _.bind(function ( valueToTest ) {
+                return _.startsWith( valueToTest, "XYZ");
+            }, this);
+            var validations = ['required', {validation:customValidationFunc, msg:'my.custom.validation.message'}, 'numerical'];
+
+            var res1 = Validator.containsValidation('numerical',validations);
+            expect(res1).toBeTruthy();
+
+            var res2 = Validator.containsValidation('email',validations);
+            expect(res2).toBeFalsy();
+        });
     });
 
 });
