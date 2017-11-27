@@ -128,6 +128,7 @@ define([
                     break;
 
                 default:
+                    console.warn( "Validation "+validation+" not found. Skipping this test!" );
                     res = true;
             }
             if(!res ) this.validationErrors.push( error_msg || "validationerror."+validation );
