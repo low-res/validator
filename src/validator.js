@@ -127,6 +127,17 @@ define([
                     res = re.test(valueToTest);
                     break;
 
+                case "password":
+                    // https://stackoverflow.com/questions/19605150/regex-for-password-must-contain-at-least-eight-characters-at-least-one-number-a
+                    // At least one upper case English letter, (?=.*?[A-Z])
+                    // At least one lower case English letter, (?=.*?[a-z])
+                    // At least one digit, (?=.*?[0-9])
+                    // At least one special character, (?=.*?[#?!@$%^&*-])
+                    // Minimum eight in length .{8,} (with the anchors)
+                    var re = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
+                    res = re.test(valueToTest);
+                    break;
+
                 default:
                     console.warn( "Validation "+validation+" not found. Skipping this test!" );
                     res = true;
