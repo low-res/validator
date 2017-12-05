@@ -43,7 +43,9 @@ define([
     p.containsValidation = function ( validationToFind, validationObject) {
         var v = this._prepareValidations(validationObject);
         var f = _.find(v, {'validation':validationToFind});
-        return f ? true : false;
+        var a = _.find(v, {'alias':validationToFind});
+
+        return f || a ? true : false;
     }
 
 

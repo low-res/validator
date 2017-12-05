@@ -139,13 +139,16 @@ define([
             var customValidationFunc = _.bind(function ( valueToTest ) {
                 return _.startsWith( valueToTest, "XYZ");
             }, this);
-            var validations = ['required', {validation:customValidationFunc, msg:'my.custom.validation.message'}, 'numerical'];
+            var validations = ['required', {validation:customValidationFunc, msg:'my.custom.validation.message', alias:'aliasfunctionname'}, 'numerical'];
 
             var res1 = Validator.containsValidation('numerical',validations);
             expect(res1).toBeTruthy();
 
             var res2 = Validator.containsValidation('email',validations);
             expect(res2).toBeFalsy();
+
+            var res3 = Validator.containsValidation('aliasfunctionname',validations);
+            expect(res3).toBeTruthy();
         });
     });
 
