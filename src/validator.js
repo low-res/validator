@@ -136,7 +136,7 @@ define([
                     // At least one digit, (?=.*?[0-9])
                     // At least one special character, (?=.*?[#?!@$%^&*-])
                     // Minimum eight in length .{8,} (with the anchors)
-                    var re = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
+                    var re = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[\d\.#?!@$%^&*-]).{8,}$/;
                     res = re.test(valueToTest);
                     break;
 
@@ -152,7 +152,7 @@ define([
             if(!res) this.validationErrors.push(error_msg || "validationerror.generic");
         }
 
-        console.log( "_doSingleValidation", valueToTest, validationObject, res );
+        // console.log( "_doSingleValidation", valueToTest, validationObject, res );
         return res;
     }
 
