@@ -14,13 +14,13 @@ define([
         this.customValidations  = [];
     }
     
-    p.validate = function ( valueToTest, validation ) {
+    p.validate = function ( valueToTest, validation, context ) {
         var self = this;
         this.validationErrors = [];
         var tests = this._prepareValidations(validation);
         var singleTest;
         var isValid = _.reduce( tests, function ( allValid, tmpValidation) {
-            singleTest = self._doSingleValidation(valueToTest, tmpValidation);
+            singleTest = self._doSingleValidation(valueToTest, tmpValidation, context);
             return allValid && singleTest;
         }, true );
         return isValid;
@@ -106,7 +106,7 @@ define([
         return res;
     }
 
-    p._doSingleValidation = function( valueToTest, validationObject ) {
+    p._doSingleValidation = function( valueToTest, validationObject, context ) {
         var res         = true;
         var error_msg   = validationObject.msg || null;
         var validation  = validationObject.validation;
@@ -148,7 +148,7 @@ define([
         }
 
         if(_.isFunction(validation)) {
-            res = validation( valueToTest );
+            res = validation( valueToTest, context );
             if(!res) this.validationErrors.push(error_msg || "validationerror.generic");
         }
 
