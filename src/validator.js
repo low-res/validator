@@ -114,7 +114,7 @@ define([
         if(_.isString(validation)) {
             switch( validation ) {
                 case "required":
-                    res = !_.isEmpty(valueToTest) || _.isDate(valueToTest) || _.isNumber(valueToTest) || valueToTest===true;
+                    res = !_.isEmpty(valueToTest) || _.isDate(valueToTest) || _.isNumber(valueToTest) || _.isBoolean(valueToTest) || valueToTest===true || valueToTest===false;
                     break;
 
                 case "email":
@@ -125,7 +125,7 @@ define([
                     break;
 
                 case "numerical":
-                    var re = /^[0-9,\.]*$/;
+                    var re = /^[0-9,\.-]*$/;
                     res = re.test(valueToTest);
                     break;
 
